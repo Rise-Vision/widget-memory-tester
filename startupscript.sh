@@ -54,4 +54,4 @@ git clone https://github.com/Rise-Vision/widget-memory-tester.git
 chown -R widget-memory-tester:widget-memory-tester widget-memory-tester
 cd /home/widget-memory-tester/widget-memory-tester
 npm install
-chown -R widget-memory-tester:widget-memory-tester widget-memory-tester
+chown -R widget-memory-tester:widget-memory-tester node_modules

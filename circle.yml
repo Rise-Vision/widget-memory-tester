@@ -2,6 +2,10 @@ test:
   override:
     - echo "There is no test"
   deployment:
+    staging:
+      branch: /(feature|fix|chore).*/
+      commands:
+        - echo "Do nothing for staging"
     production:
       branch: master
       commands:

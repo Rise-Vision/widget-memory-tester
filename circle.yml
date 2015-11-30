@@ -1,0 +1,8 @@
+test:
+  override:
+    - echo "There is no test"
+  deployment:
+    production:
+      branch: master
+      commands:
+        - ssh widget-memory-tester@104.197.26.57 'sudo /usr/share/google/run-startup-scripts'

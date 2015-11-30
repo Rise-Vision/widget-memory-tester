@@ -52,3 +52,6 @@ yes | ./rvplayer-installer.sh
 rm -rf widget-memory-tester
 git clone https://github.com/Rise-Vision/widget-memory-tester.git
 chown -R widget-memory-tester:widget-memory-tester widget-memory-tester
+cd /home/widget-memory-tester/widget-memory-tester
+npm install
+chown -R widget-memory-tester:widget-memory-tester widget-memory-tester

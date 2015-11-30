@@ -13,6 +13,10 @@ if ! which node; then
   sudo apt-get install -y nodejs
 fi
 
+if ! which gulp; then
+  npm install -g gulp
+fi
+
 if ! which unzip; then
   sudo apt-get install -y unzip
 fi
@@ -28,17 +32,23 @@ if ! which Xvfb; then
   sudo apt-get install -y xvfb
 fi
 
-export DISPLAY=:10
 if ! pidof Xvfb ; then
   Xvfb :10 -screen 0 1024x768x24 &
 fi
 
-cd /home/widget-memory-tester
-git clone https://github.com/Rise-Vision/widget-memory-tester.git
-chown -R widget-memory-tester:widget-memory-tester widget-memory-tester
+export DISPLAY=:10
+if [ ! -f /etc/profile.d/display.sh ]; then
+  echo "export DISPLAY=:10" >> /etc/profile.d/display.sh
+  chmod +x /etc/profile.d/display.sh
+fi
 
+cd /home/widget-memory-tester
 rm -rf rvplayer-installer.sh
 wget http://install-versions.risevision.com/rvplayer-installer.sh
 chown -R widget-memory-tester:widget-memory-tester rvplayer-installer.sh
 chmod +x rvplayer-installer.sh
 yes | ./rvplayer-installer.sh
+
+rm -rf widget-memory-tester
+git clone https://github.com/Rise-Vision/widget-memory-tester.git
+chown -R widget-memory-tester:widget-memory-tester widget-memory-tester
